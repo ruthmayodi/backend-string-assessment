@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Ruth Mayodi, ruthmayodi, with the help of Howard Post"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,8 +23,14 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) < 3: 
+        return s
+    elif s.endswith('ing'):
+        return s + 'ly' 
+    else: 
+        return s + 'ing'
+
+    
 
 
 # E. not_bad
@@ -37,8 +43,14 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    not_index = s.find('not', 0, len(s))
+    bad_index = s.find('bad', 0, len(s))
+    if bad_index > not_index: 
+        if s[-1] in ('?', '!', '.'):
+            return s[0:not_index] + 'good' + s[-1]
+        else: 
+            return s[0:not_index] + 'good'
+    return s
 
 
 # F. front_back
@@ -52,8 +64,20 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 0:
+        a_front = a[0:(len(a)//2)]
+        a_back = a[(len(a)//2):]
+    else:
+        a_front = a[0:(len(a)//2 + 1)]
+        a_back = a[(len(a)//2 + 1):]
+
+    if len(b) % 2 == 0:
+        b_front = b[0:(len(b)//2)]
+        b_back = b[(len(b)//2):]
+    else:
+        b_front = b[0:(len(b)//2 + 1)]
+        b_back = b[(len(b)//2 + 1):]
+    return a_front + b_front + a_back + b_back
 
 
 # Provided simple test() function used in main() to print
